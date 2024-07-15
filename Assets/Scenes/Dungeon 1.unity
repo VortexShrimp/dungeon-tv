@@ -737,6 +737,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _followSpeed: 10
   _targetToFollow: {fileID: 1314965715}
+--- !u!4 &555631021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7499827055303165221, guid: c4e14676a3b3c5348a6cf39f19b67199, type: 3}
+  m_PrefabInstance: {fileID: 1118612553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,6 +973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2453461132477002454, guid: c4e14676a3b3c5348a6cf39f19b67199, type: 3}
+      propertyPath: _weaponTransform
+      value: 
+      objectReference: {fileID: 555631021}
     - target: {fileID: 2562743323533629815, guid: c4e14676a3b3c5348a6cf39f19b67199, type: 3}
       propertyPath: m_Name
       value: Player
