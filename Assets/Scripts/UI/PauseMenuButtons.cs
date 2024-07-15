@@ -13,6 +13,11 @@ public class PauseMenuButtons : MonoBehaviour
         OnResumeButtonClicked?.Invoke();
     }
 
+    public void OnRestartClicked()
+    {
+        SceneManager.LoadSceneAsync("Dungeon 1");
+    }
+
     public void OnMenuClicked()
     {
         SceneManager.LoadSceneAsync("Menu Start");

@@ -7,9 +7,10 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] float moveSpeed;
-        [SerializeField] Sprite[] playerSprites;
-        [SerializeField] GameObject bulletPrefab;
+        [SerializeField] float _moveSpeed;
+        [SerializeField] Sprite[] _playerSprites;
+        [SerializeField] GameObject _bulletPrefab;
+        [SerializeField] SpriteRenderer _weaponSpriteRenderer;
 
         Rigidbody2D _rigidbody;
         SpriteRenderer _spriteRenderer;
@@ -67,7 +68,7 @@ namespace Player
             var input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             //_rigidbody.MovePosition(_rigidbody.position + input * moveSpeed * Time.fixedDeltaTime);
 
-            var vel = input * moveSpeed * Time.fixedDeltaTime;
+            var vel = input * _moveSpeed * Time.fixedDeltaTime;
             _rigidbody.velocity = vel;
 
             // No movement.
@@ -80,6 +81,19 @@ namespace Player
                 if (vel.x != 0)
                 {
                     _animator.SetInteger("State", 2);
+
+                    // Moving right.
+                    if (vel.x > 0)
+                    {
+                        _weaponSpriteRenderer.flipX = false;
+                        _spriteRenderer.flipX = true;
+                    }
+                    // Moving left.
+                    else
+                    {
+                        _weaponSpriteRenderer.flipX = true;
+                        _spriteRenderer.flipX = false;
+                    }
                 }
 
                 if (vel.y != 0)
@@ -95,7 +109,7 @@ namespace Player
             {
                 if (_canFire == true)
                 {
-                    Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                    Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
                     StartCoroutine(WaitForNextShot(0.3f));
                 }
             }
