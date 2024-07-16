@@ -11,6 +11,7 @@ public class BulletController : MonoBehaviour
 
     void Awake()
     {
+        damage = 30;
         _rigidbody = GetComponent<Rigidbody2D>();
 
         var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
