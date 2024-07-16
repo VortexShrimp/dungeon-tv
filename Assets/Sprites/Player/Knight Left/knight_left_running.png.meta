@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f716dafdebfdac74abd16340ed906d21
+guid: d554e182707177c48a1bfd3e84c9fddb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,24 +93,95 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Knight Front Idle_0
+      name: knight_left_running_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4728c53e23513ac4ab58c676dd3a6db0
+      internalID: -1837266231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_left_running_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fde61ea4029c5b4dbfb380c67b88236
+      internalID: 62408885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_left_running_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca87075955c6cb4d858f6e017dcebd4
+      internalID: -2030628440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_left_running_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3606c3518231e4389dd1adf1bb22c2
+      internalID: 1002311935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: knight_left_running_4
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a8b856b048da6049b76f821159dace4
-      internalID: 612263765
+      spriteID: 8cafd071a199e454db0272e67cee2f81
+      internalID: -65660532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Knight Front Idle_1
+      name: knight_left_running_5
       rect:
         serializedVersion: 2
         x: 0
@@ -145,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c79927fe8fa598419636b3bad9ff200
-      internalID: 1594794409
+      spriteID: d66ddcc8cf84a7845b9a58ec972cf690
+      internalID: 2044859917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Knight Front Idle_2
+      name: knight_left_running_6
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a45d4d08c4784214fb7b73d1fc3c00cf
-      internalID: -261698374
+      spriteID: 71f3eb57d4af0b144917db3c2fee80f4
+      internalID: 1216714752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Knight Front Idle_3
+      name: knight_left_running_7
       rect:
         serializedVersion: 2
         x: 0
@@ -187,8 +258,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eaf85592cab2d04da061e7634e584f1
-      internalID: 60100786
+      spriteID: eac0f1f332d7a8c4da0eb96867534ad2
+      internalID: 1685542106
       vertices: []
       indices: 
       edges: []
@@ -204,10 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player Knight Front Idle_0: 612263765
-      Player Knight Front Idle_1: 1594794409
-      Player Knight Front Idle_2: -261698374
-      Player Knight Front Idle_3: 60100786
+      knight_left_running_0: -1837266231
+      knight_left_running_1: 62408885
+      knight_left_running_2: -2030628440
+      knight_left_running_3: 1002311935
+      knight_left_running_4: -65660532
+      knight_left_running_5: 2044859917
+      knight_left_running_6: 1216714752
+      knight_left_running_7: 1685542106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

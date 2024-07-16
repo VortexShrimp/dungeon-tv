@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b55a24e1ac9fcc14aa028d7fd2a9e3e9
+guid: 6e5445741b1f9d34796136f0e1f8f099
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,24 +93,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Knight Left Idle_0
+      name: knight_left_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d38fc642b2030a1479e91d78f73034eb
-      internalID: 241335302
+      spriteID: 004462d9fedb5bd41b99d6d7ccb3df25
+      internalID: 747764262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Knight Left Idle_1
+      name: knight_left_idle_1
       rect:
         serializedVersion: 2
         x: 0
@@ -145,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 125a122c394ce1340a317d5550afc8f8
-      internalID: 1478758475
+      spriteID: 043bd5c5d161f1a4f88f97d838e45063
+      internalID: 981184701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Knight Left Idle_2
+      name: knight_left_idle_2
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c7cc395851a6ab49a49bf9b6bcbe242
-      internalID: -2080932380
+      spriteID: 37e82a902521b7f498518f2f40602d8d
+      internalID: 909979052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Knight Left Idle_3
+      name: knight_left_idle_3
       rect:
         serializedVersion: 2
         x: 0
@@ -187,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88f57aaa0d6286a4991adb296cc5a692
-      internalID: 4410379
+      spriteID: dce5744e7a4eb234680732b1bffd5be4
+      internalID: 1716964171
       vertices: []
       indices: 
       edges: []
@@ -204,10 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player Knight Left Idle_0: 241335302
-      Player Knight Left Idle_1: 1478758475
-      Player Knight Left Idle_2: -2080932380
-      Player Knight Left Idle_3: 4410379
+      knight_left_idle_0: 747764262
+      knight_left_idle_1: 981184701
+      knight_left_idle_2: 909979052
+      knight_left_idle_3: 1716964171
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

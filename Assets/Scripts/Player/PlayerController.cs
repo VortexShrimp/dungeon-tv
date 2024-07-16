@@ -52,13 +52,13 @@ namespace Player
             if (_isPaused == false)
             {
                 HandleFiring();
+                MoveGun();
             }
         }
 
         void FixedUpdate()
         {
             HandleMovement();
-            MoveGun();
         }
 
         //
@@ -70,16 +70,16 @@ namespace Player
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            double angle = (Math.Atan2(_rigidbody.position.y - mousePos.y, _rigidbody.position.x - mousePos.x) * (180 / Math.PI)) - 180;
+            double angle = (Math.Atan2(transform.position.y - mousePos.y, transform.position.x - mousePos.x) * (180 / Math.PI)) - 180;
             _weaponTransform.rotation = Quaternion.Euler(0, 0, (float)angle);
 
             // Flips sprite accordingly
             _weaponSpriteRenderer.flipY = angle >= -270 && angle <= -90;
 
-            double gunPosX = Math.Cos(angle * Math.PI / 180);
-            double gunPosY = Math.Sin(angle * Math.PI / 180);
+            double gunPosX = Math.Cos(angle * Math.PI / 180)/1.1;
+            double gunPosY = Math.Sin(angle * Math.PI / 180)/1.1 - 0.1f;
 
-            _weaponTransform.position = new Vector2((float)gunPosX + _rigidbody.position.x,(float)gunPosY + _rigidbody.position.y);
+            _weaponTransform.position = new Vector2((float)gunPosX + transform.position.x,(float)gunPosY + transform.position.y);
         }
 
         // Move the player & adjust their sprite.
@@ -101,7 +101,6 @@ namespace Player
                 if (vel.x != 0)
                 {
                     _animator.SetInteger("State", 2);
-
                     // Moving right.
                     if (vel.x > 0)
                     {
@@ -113,10 +112,19 @@ namespace Player
                         _spriteRenderer.flipX = false;
                     }
                 }
-
                 if (vel.y != 0)
                 {
-                    _animator.SetInteger("State", 1);
+                    _spriteRenderer.flipX = false;
+                    // Moving up.
+                    if (vel.y > 0)
+                    {
+                        _animator.SetInteger("State", 4);
+                    }
+                    // Moving down.
+                    else
+                    {
+                        _animator.SetInteger("State", 1);
+                    }
                 }
             }
         }
