@@ -58,7 +58,7 @@ namespace Player
         void FixedUpdate()
         {
             HandleMovement();
-            GunPos();
+            MoveGun();
         }
 
         //
@@ -66,18 +66,22 @@ namespace Player
         //
 
         // Make gun aim at crosshair & offset gun from player
-        void GunPos() {
-            var _mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _mousePos.z = 0;
-            double _angle = Math.Atan2((_rigidbody.position.y - _mousePos.y),(_rigidbody.position.x - _mousePos.x)) * (180/Math.PI) - 180;
-            _weaponTransform.rotation = Quaternion.Euler(0,0,(float)_angle);
+        void MoveGun()
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            double angle = (Math.Atan2(_rigidbody.position.y - mousePos.y, _rigidbody.position.x - mousePos.x) * (180 / Math.PI)) - 180;
+            _weaponTransform.rotation = Quaternion.Euler(0, 0, (float)angle);
+
             // Flips sprite accordingly
-            if (_angle < -270 || _angle > -90) _weaponSpriteRenderer.flipY = false;
-            else _weaponSpriteRenderer.flipY = true;
-            double _gunPosX = Math.Cos(_angle* Math.PI/180);
-            double _gunPosY = Math.Sin(_angle* Math.PI/180);
-            _weaponTransform.position = new Vector2((float)_gunPosX + _rigidbody.position.x,(float)_gunPosY + _rigidbody.position.y);
+            _weaponSpriteRenderer.flipY = angle >= -270 && angle <= -90;
+
+            double gunPosX = Math.Cos(angle * Math.PI / 180);
+            double gunPosY = Math.Sin(angle * Math.PI / 180);
+
+            _weaponTransform.position = new Vector2((float)gunPosX + _rigidbody.position.x,(float)gunPosY + _rigidbody.position.y);
         }
+
         // Move the player & adjust their sprite.
         void HandleMovement()
         {

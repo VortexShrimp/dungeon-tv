@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "dungeon-tv.sln"
+    "dotnet.defaultSolution": "Cryptic Caverns.sln"
 }
