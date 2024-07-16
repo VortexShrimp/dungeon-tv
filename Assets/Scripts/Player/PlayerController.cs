@@ -10,15 +10,11 @@ namespace Player
     {
         [SerializeField] float _moveSpeed;
         [SerializeField] Sprite[] _playerSprites;
-        [SerializeField] GameObject _bulletPrefab;
-        [SerializeField] SpriteRenderer _weaponSpriteRenderer;
-        [SerializeField] Transform _weaponTransform;
+
 
         Rigidbody2D _rigidbody;
         SpriteRenderer _spriteRenderer;
         Animator _animator;
-
-        bool _canFire;
         bool _isPaused;
 
         //
@@ -30,8 +26,6 @@ namespace Player
             _rigidbody = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
-
-            _canFire = true;
             _isPaused = false;
         }
 
@@ -47,15 +41,6 @@ namespace Player
             PauseMenuButtons.OnResumeButtonClicked -= OnResumeButtonClicked;
         }
 
-        void Update()
-        {
-            if (_isPaused == false)
-            {
-                HandleFiring();
-                MoveGun();
-            }
-        }
-
         void FixedUpdate()
         {
             HandleMovement();
@@ -65,23 +50,6 @@ namespace Player
         // Private class methods.
         //
 
-        // Make gun aim at crosshair & offset gun from player
-        void MoveGun()
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            double angle = (Math.Atan2(transform.position.y - mousePos.y, transform.position.x - mousePos.x) * (180 / Math.PI)) - 180;
-            _weaponTransform.rotation = Quaternion.Euler(0, 0, (float)angle);
-
-            // Flips sprite accordingly
-            _weaponSpriteRenderer.flipY = angle >= -270 && angle <= -90;
-
-            double gunPosX = Math.Cos(angle * Math.PI / 180)/1.1;
-            double gunPosY = Math.Sin(angle * Math.PI / 180)/1.1 - 0.1f;
-
-            _weaponTransform.position = new Vector2((float)gunPosX + transform.position.x,(float)gunPosY + transform.position.y);
-        }
-
         // Move the player & adjust their sprite.
         void HandleMovement()
         {
@@ -90,75 +58,47 @@ namespace Player
 
             var vel = input * _moveSpeed * Time.fixedDeltaTime;
             _rigidbody.velocity = vel;
-
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            double angle = (Math.Atan2(transform.position.y - mousePos.y, transform.position.x - mousePos.x) * (180 / Math.PI)) - 180;
+            Debug.Log(angle);
             // No movement.
+
             if (vel.magnitude == 0)
             {
-                _animator.SetInteger("State", 0);
-            }
-            else
-            {
-                if (vel.x != 0)
-                {
-                    _animator.SetInteger("State", 2);
-                    // Moving right.
-                    if (vel.x > 0)
-                    {
-                        _spriteRenderer.flipX = true;
-                    }
-                    // Moving left.
-                    else
-                    {
-                        _spriteRenderer.flipX = false;
-                    }
+                if (angle <= -45 && angle > -135) {
+                    _animator.SetInteger("State", 0);
                 }
-                if (vel.y != 0)
-                {
+                else if (angle <= -135 && angle > -225) {
+                    _animator.SetInteger("State", 6);
                     _spriteRenderer.flipX = false;
-                    // Moving up.
-                    if (vel.y > 0)
-                    {
-                        _animator.SetInteger("State", 4);
-                    }
-                    // Moving down.
-                    else
-                    {
-                        _animator.SetInteger("State", 1);
-                    }
+                }
+                else if (angle <= -225 && angle > -315) {
+                    _animator.SetInteger("State", 5);
+                } 
+                else {
+                    _animator.SetInteger("State", 6);
+                    _spriteRenderer.flipX = true;
                 }
             }
-        }
-
-        void HandleFiring()
-        {
-            if (Input.GetKey(KeyCode.Mouse0) == true)
+            if (vel.magnitude != 0)
             {
-                if (_canFire == true)
-                {
-                    Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-                    StartCoroutine(WaitForNextShot(0.3f));
+                if (angle <= -45 && angle > -135) {
+                    _animator.SetInteger("State", 1);
                 }
-            }
-        }
-
-        //
-        // Coroutines.
-        //
-
-        // Wait a certain amount of seconds before flipping _canFire.
-        IEnumerator WaitForNextShot(float seconds)
-        {
-            _canFire = false;
-
-            float elapsedSeconds = 0;
-
-            while (elapsedSeconds < seconds)
-            {
-                elapsedSeconds += Time.deltaTime;
-                yield return null;
-            }
-
-            _canFire = true;
+                else if (angle <= -135 && angle > -225) {
+                    _animator.SetInteger("State", 2);
+                    _spriteRenderer.flipX = false;
+                }
+                else if (angle <= -225 && angle > -315) {
+                    _animator.SetInteger("State", 4);
+                } 
+                else {
+                    _animator.SetInteger("State", 2);
+                    _spriteRenderer.flipX = true;
+                }
+           }
+           
+            
         }
 
         //

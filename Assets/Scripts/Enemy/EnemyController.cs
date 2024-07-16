@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] int _maxHealth;
     [SerializeField] GameObject _dropPrefab;
 
+
     bool _needsMove;
     int _health;
 
@@ -28,12 +29,11 @@ public class EnemyController : MonoBehaviour
             StartCoroutine(MoveSideToSide());
         }
     }
-
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player Bullet"))
         {
-            _health -= 10;
+            _health -= col.gameObject.GetComponent<BulletController>().damage;
 
             if (_health <= 0)
             {
